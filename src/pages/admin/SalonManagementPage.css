@@ -1,0 +1,210 @@
+.salon-management-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+}
+
+.salon-management-page h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.salon-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.form-section {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.form-section h3 {
+  font-size: 1.4rem;
+  color: #d17a94;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.opening-hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.opening-hours-row:last-child {
+  border-bottom: none;
+}
+
+.weekday-label {
+  font-weight: 600;
+  width: 80px;
+}
+
+.time-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.is-open-label {
+  cursor: pointer;
+}
+
+.time-controls select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.payment-methods-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.payment-method-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.save-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.save-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  user-select: none; /* テキスト選択を無効化 */
+}
+
+.checkbox-label:hover {
+  background-color: #f7f2ec;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #d17a94;
+}
+
+/* Image Upload */
+.image-upload-container {
+  margin-bottom: 1.2rem;
+}
+.image-upload-container input[type="file"] { display: none; }
+.image-upload-label {
+  display: flex; justify-content: center; align-items: center;
+  width: 100%; height: 150px; border: 2px dashed #ccc;
+  border-radius: 8px; cursor: pointer; background-color: #f9f9f9;
+  color: #888; overflow: hidden;
+  transition: border-color 0.2s, background-color 0.2s;
+  position: relative; /* ローディング表示のため追加 */
+}
+.image-upload-label:hover {
+  border-color: #d17a94;
+  background-color: #fef6f8;
+}
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.upload-placeholder svg {
+  width: 32px;
+  height: 32px;
+  stroke: #aaa;
+}
+.upload-placeholder span {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.image-preview { width: 100%; height: 100%; object-fit: cover; }
+
+/* アップロード中のローディング表示 */
+.uploading-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #333;
+}

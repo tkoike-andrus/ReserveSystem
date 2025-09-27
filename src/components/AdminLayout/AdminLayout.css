@@ -1,0 +1,229 @@
+/* src/components/AdminLayout/AdminLayout.css */
+
+.admin-layout {
+  display: flex;
+  height: 100vh;
+  background-color: #f9fafb;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  color: #333;
+  padding: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.sidebar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d17a94;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+  color: #4b5563;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.sidebar-nav a.active {
+  background-color: #e094a8;
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar-nav a .fa-fw {
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  text-align: center;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  color: #4b5563;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #f3f4f6;
+}
+
+.logout-button i {
+  font-size: 18px;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* --- ▼▼▼ 修正 ▼▼▼ --- */
+  /* この要素自体がスクロールするのではなく、中のコンテンツ(.page-content)がスクロールするようにするため */
+  overflow: hidden; 
+}
+
+.main-header {
+  padding: 8px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1002;
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 3px;
+  position: absolute;
+  left: 11px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+.menu-toggle span:nth-child(1) { top: 14px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle span:nth-child(3) { top: 28px; }
+
+.menu-toggle.open span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.salon-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.operator-name {
+  color: #4b5563;
+}
+
+.page-content {
+  padding: 15px; 
+  flex-grow: 1;
+  overflow-y: auto;
+  /* height: 0; を追加することで、flex-growが正しく高さを計算できるようになる */
+  height: 0;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 3px 0 15px rgba(0,0,0,0.2);
+  }
+  
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,124 @@
+/* src/pages/auth/LoginPage.css */
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-logo {
+  width: 240px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.auth-container h2 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.auth-subtitle {
+  color: #d17a94;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.auth-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e094a8;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-form button:hover {
+  background-color: #d17a94;
+}
+
+.auth-error {
+  color: #d9534f;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.auth-link {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 20px;
+  text-align: center; /* 中央揃え */
+}
+
+.auth-link a {
+  color: #d17a94;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.line-login-button {
+  background-color: #00c300 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.line-login-button:hover {
+  background-color: #00b300 !important;
+}
+
+.line-login-button .fa-line {
+  font-size: 20px;
+}
+
+.auth-divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ddd;
+}

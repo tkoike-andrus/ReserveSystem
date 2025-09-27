@@ -1,0 +1,206 @@
+.history-container {
+  padding: 24px 16px;
+  padding-bottom: 80px; /* フッターメニュー分の余白 */
+  background-color: #f7f8fa;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.history-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.history-header h1 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.back-button-history {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+  padding: 0 10px;
+}
+
+.back-to-mypage-btn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #e91e63;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.history-section {
+  margin-bottom: 32px;
+}
+
+.history-section h2 {
+  font-size: 1.1rem;
+  color: #e91e63; /* テーマカラー */
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #fce4ec;
+  font-weight: 600;
+}
+
+.no-reservations {
+  text-align: center;
+  color: #888;
+  padding: 40px 16px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.reservation-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.reservation-card.rebookable {
+  cursor: pointer;
+}
+
+.reservation-card.rebookable:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.reservation-card.rebookable.disabled {
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+  opacity: 0.8;
+}
+
+.reservation-card.rebookable.disabled:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fce4ec;
+  padding: 12px 16px;
+}
+
+.salon-name {
+  font-weight: 700;
+  color: #ad1457;
+  font-size: 0.9rem;
+}
+
+.status {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+/* ステータスごとの色分け */
+.status.reserved { background-color: #7fe782; }
+.status.completed { background-color: #2196F3; }
+.status.canceled { background-color: #9e9e9e; }
+.status.noshow { background-color: #f44336; }
+
+
+.card-body {
+  padding: 16px;
+  text-align: left;
+}
+
+.menu-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.details p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 6px 0;
+}
+
+.details strong {
+  color: #333;
+  margin-right: 8px;
+}
+
+.card-footer {
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+
+.error-message {
+  text-align: center;
+  color: #c62828;
+  background-color: #ffebee;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* --- "Load More" Styles --- */
+.load-more-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e91e63;
+  background-color: transparent;
+  color: #e91e63;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 16px;
+}
+
+.load-more-btn:hover {
+  background-color: #fce4ec;
+}
+
+.more-loader {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

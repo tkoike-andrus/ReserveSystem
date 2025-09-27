@@ -1,0 +1,185 @@
+/* src/components/ReservationList/ReservationList.css */
+.ReservationList {
+  width: 100%;
+}
+
+.reservation-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reservation-card {
+  background-color: #e8f5e9; /* 「予約済」のデフォルト背景色 */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  text-align: left;
+}
+
+.reservation-card.status-completed {
+  background-color: #f5f5f5; /* 「完了済」の背景色 */
+}
+
+/* 過去の予約は、ステータスに関わらず背景を白にする */
+.reservation-card.past-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+
+.card-body {
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-label {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.info-value {
+  font-size: 1em;
+  color: #333;
+  font-weight: 500;
+}
+
+.status-badge {
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 15px;
+  background-color: #fff;
+  border: 1px solid #388e3c;
+  color: #388e3c;
+}
+
+.status-badge.status-canceled,
+.status-badge.status-noshow {
+  border-color: #d32f2f;
+  color: #d32f2f;
+}
+.status-badge.status-completed {
+  border-color: #777;
+  color: #777;
+}
+
+/* メニュー詳細セクションのスタイル */
+.menu-details-section {
+  padding: 0 15px;
+}
+
+.details-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px solid #c8e6c9;
+  border-bottom: 1px solid #c8e6c9;
+  padding: 15px 0;
+  margin: 10px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 500;
+  color: #333;
+}
+
+.status-completed .details-toggle,
+.past-card .details-toggle {
+  border-top-color: #ddd;
+  border-bottom-color: #ddd;
+}
+
+
+.arrow {
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: transform 0.2s;
+}
+.arrow.down { transform: rotate(45deg); }
+.arrow.up { transform: rotate(-135deg); }
+
+.menu-details-content {
+  padding: 15px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.details-menu-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.details-menu-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1em;
+}
+.details-menu-info p {
+  margin: 0 0 10px 0;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.5;
+}
+.details-price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+}
+.details-price-row strong {
+  font-weight: bold;
+}
+
+.card-footer {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.total-price {
+  margin-bottom: 15px;
+}
+.total-price .info-label {
+  font-size: 1em;
+  font-weight: bold;
+}
+.total-price .info-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d17a94;
+}
+
+.action-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #e66a97, #d17a94);
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.no-reservations {
+  padding: 40px 20px;
+  text-align: center;
+  color: #777;
+  background-color: #fff;
+  border-radius: 12px;
+}

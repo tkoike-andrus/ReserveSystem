@@ -1,0 +1,941 @@
+/* src/pages/admin/MenuManagementPage.css */
+
+.menu-management-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* --- ヘッダー（「+ 新規メニューを登録」ボタン） --- */
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.add-new-button {
+  background-color: #d17a94;
+  width: 250px;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.add-new-button:hover {
+  background-color: #c56783;
+}
+
+/* --- Swipeable Tabs Styles --- */
+.category-tabs-container {
+  overflow-x: auto; /* 横方向にスクロール可能にする */
+  -webkit-overflow-scrolling: touch; /* iOSでのスムーズなスクロール */
+  scrollbar-width: none; /* Firefoxでスクロールバーを非表示 */
+}
+.category-tabs-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safariでスクロールバーを非表示 */
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  margin: 0 20px; /* 左右に余白を追加して、スクロールインジケーターと重ならないようにする */
+}
+
+.tab-button {
+  flex-shrink: 0; /* prevent tabs from shrinking */
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #888;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tab-button.active {
+  color: #d17a94;
+  font-weight: bold;
+  border-bottom-color: #d17a94;
+}
+
+/* --- Menu List Container for Swipe --- */
+.menu-list-container {
+  overflow-y: auto; /* このエリアだけを縦スクロールさせる */
+  flex-grow: 1; /* 残りの高さいっぱいに広げる */
+  padding: 20px;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding-bottom: 20px; /* 最後のカードが見切れないように余白を追加 */
+}
+
+.menu-list.swiping {
+  opacity: 0;
+}
+
+.loading-overlay-swipe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.no-menu-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+/* --- Modern Menu Card Styles --- */
+.menu-card {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: left;
+}
+
+.menu-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card.inactive .menu-card-image,
+.menu-card.inactive .menu-card-body {
+opacity: 0.6;
+}
+
+.menu-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比を4:3に固定 */
+  object-fit: cover;   /* 領域に合わせて画像をトリミング */
+  background-color: #f7fafc;
+}
+
+.menu-card-body {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-card-title-wrapper {
+  justify-content: space-between;
+  align-items: flex-start; /* 複数行のタイトルでも上端に揃える */
+  gap: 8px;
+  margin-bottom: 12px; /* タイトルと下の要素との間隔を調整 */
+  text-align: left;
+}
+
+.menu-card-title {
+  flex-grow: 1;
+  }
+
+.info-label {
+  font-weight: 500;
+  color: #718096;
+}
+
+.info-value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 価格と施術時間を横並びにするためのスタイル */
+.menu-card-details-group {
+  display: flex;
+  gap: 16px;
+}
+.menu-card-details-group .menu-card-info-item {
+  flex: 1;
+}
+
+.status-badge {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.active {
+  background-color: #e6fffa;
+  color: #13960f;
+}
+
+.status-badge.inactive {
+  background-color: #f7fafc;
+  color: #6d7075;
+  border: 1px solid #a0aec0;
+}
+
+.description-accordion {
+  margin: 0;
+}
+.description-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-description.collapsible {
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: #666;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.menu-card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: #fdfdfd;
+}
+
+.card-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.85em;
+  flex: 1;
+}
+
+.card-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-action-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.btn-preview {
+  background-color: #eef2ff;
+  color: #4338ca;
+}
+.btn-preview svg {
+  stroke: #4338ca;
+}
+
+.btn-edit {
+  background-color: #f0fdf4;
+  color: #15803d;
+}
+.btn-edit svg {
+  stroke: #15803d;
+}
+
+.btn-delete {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+.btn-delete svg {
+  stroke: #b91c1c;
+}
+
+
+/* --- Modal Form Styles (変更なし) --- */
+.modal-backdrop {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+  background-color: white; padding: 0; border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  width: 90%; max-width: 450px;
+  display: flex; flex-direction: column;
+  max-height: 90vh;
+  position: relative;
+}
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f0f0f0;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  z-index: 10;
+}
+.modal-close-button:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.modal-content h2 {
+  padding: 20px 20px;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.modal-content form {
+  padding: 25px 30px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { margin:0; font-weight: bold; color: #555; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px; border: 1px solid #ccc;
+  border-radius: 8px; font-size: 1em; background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #d17a94;
+  box-shadow: 0 0 0 2px rgba(209, 122, 148, 0.2);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.description-group {
+  position: relative;
+}
+.char-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-size: 0.8em;
+  color: #888;
+  background-color: #ffffffcc;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 28px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #d17a94;
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+
+.duration-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.duration-selector select {
+  flex: 1;
+}
+.duration-selector span {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+
+.save-button:hover:not(:disabled){
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.save-button svg{
+  width: 16px;
+  height: 16px;
+  stroke-width: 3; /* 太さを調整 */
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+}
+.save-button svg {
+  stroke: white; /* アイコンの色を指定 */
+}
+
+.save-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Image Upload */
+.image-upload-container input[type="file"] { display: none; }
+.image-upload-label {
+  display: flex; justify-content: center; align-items: center;
+  width: 100%; height: 150px; border: 2px dashed #ccc;
+  border-radius: 8px; cursor: pointer; background-color: #f9f9f9;
+  color: #888; overflow: hidden;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.image-upload-label:hover {
+  border-color: #d17a94;
+  background-color: #fef6f8;
+}
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.upload-placeholder svg {
+  width: 32px;
+  height: 32px;
+  stroke: #aaa;
+}
+.upload-placeholder span {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.image-preview { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Preview Modal Styles (変更なし) --- */
+.preview-modal-content {
+  background-color: #fff;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.preview-modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.preview-modal-header h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.preview-modal-body {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+.preview-note {
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+.preview-detail-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 縦横比を4:3に固定 */
+  object-fit: cover;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.preview-detail-content {
+  padding: 20px;
+}
+.preview-detail-content h2 {
+  font-size: 1.5em;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+.preview-description {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  white-space: pre-wrap;
+  text-align: left;
+}
+.preview-price-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8e7f1;
+  border-radius: 10px;
+}
+
+.price-values {
+  display: flex;
+  align-items: baseline; /* 金額のベースラインを揃える */
+  gap: 12px;
+}
+
+.original-price {
+  font-size: 1.1em;
+  color: #999;
+  text-decoration: line-through; /* 斜線を追加 */
+}
+
+.final-price {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #d17a94;
+}
+.preview-price-display strong {
+  font-size: 1.5em;
+  color: #d17a94;
+}
+
+/* --- カテゴリ選択ボタンのスタイル --- */
+.category-selector {
+  display: grid; /* flexからgridに変更 */
+  grid-template-columns: 1fr 1fr; /* 均等な2つのカラムを作成 */
+  gap: 10px;
+}
+
+.category-selector input[type="radio"] {
+  display: none;
+}
+
+.category-option {
+  /* flex-basisを削除 */
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  background-color: #f8f9fa;
+  color: #555;
+  white-space: nowrap; /* テキストが改行されないようにする */
+}
+
+.category-option.selected {
+  background-color: #d17a94;
+  color: white;
+  border-color: #d17a94;
+  font-weight: bold;
+}
+
+.form-note {
+  font-size: 0.85em;
+  color: #6b7280;
+  background-color: #f3f4f6;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.add-off-menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #555;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.add-off-menu-button:hover {
+background-color: #eee;
+border-color: #bbb;
+}
+
+.add-off-menu-button .plus-icon {
+width: 20px;
+height: 20px;
+}
+
+.no-menu-message {
+text-align: center;
+color: #777;
+padding: 20px;
+}
+
+.tabs-wrapper {
+  position: relative;
+  flex-shrink: 0; /* タブエリアも縮まないようにする */
+}
+
+
+.scroll-indicator {
+  position: absolute;
+  top: 0;
+  bottom: 10px; /* padding-bottomを考慮 */
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* クリックを透過させる */
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator.left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0));
+}
+
+.scroll-indicator.right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0));
+}
+
+/* --- Division Badges in MenuCard --- */
+.division-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.division-badge {
+  background-color: #f0e6f2;
+  color: #8c6e91;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* --- Division Checkbox Group in Modal --- */
+.division-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 縦2列で表示 */
+  gap: 10px;
+  background-color: #fdfcfa;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #f0e9e0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start; /* Align items to the top for consistent checkbox position */
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.checkbox-label:hover {
+  background-color: #f7f2ec;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #d17a94;
+  flex-shrink: 0; /* チェックボックスが縮まないように設定 */
+}
+
+.preview-detail-content .preview-division-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px; /* バッジと説明文の間のスペース */
+}
+
+.preview-division-badges .division-badge {
+  background-color: #f0e6f2;
+  color: #8c6e91;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.coupon-info {
+  background-color: #fff8e1;
+  padding: 4px 0;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-top: 1px solid #ffecb3;
+  border-bottom: 1px solid #ffecb3;
+}
+
+.coupon-info .info-label {
+  color: #c58d00;
+}
+
+.coupon-info-preview {
+  background-color: #fff8e1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.coupon-info-preview p {
+  margin: 4px 0;
+  font-size: 0.9em;
+  color: #5d4037;
+}
+
+/* --- Custom Date Range Picker --- */
+.date-range-picker {
+  position: relative;
+}
+
+.date-input-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.date-input-display span {
+  color: #333;
+}
+
+.calendar-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* --- React-Calendar Customization --- */
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  border-radius: 8px;
+  font-family: inherit !important;
+}
+
+.react-calendar__navigation button {
+  color: #d17a94;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #a0aec0;
+}
+
+.react-calendar__tile {
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #f8e7f1;
+}
+
+.react-calendar__tile--now {
+  background: #f8e7f1 !important;
+  color: #d17a94;
+  font-weight: bold;
+}
+
+.react-calendar__tile--active {
+  background: #d17a94 !important;
+  color: white !important;
+}
+
+.react-calendar__tile--range,
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #f8e7f1 !important;
+  color: #d17a94 !important;
+}
+
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #d17a94 !important;
+  color: white !important;
+}
+
+.react-calendar__tile--rangeStart {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.react-calendar__tile--rangeEnd {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+  /* タブのフォントサイズを少し小さくして、より多くのタブが見えるようにする */
+  .tab-button {
+    padding: 8px 16px;
+    font-size: 1em;
+  }
+
+  /* 新規登録ボタンの左右の余白を調整 */
+  .page-header {
+    padding: 0 10px;
+  }
+
+  /* モーダル内の左右の余白を減らす */
+  .modal-content form {
+    padding: 20px;
+  }
+
+  /* --- レスポンシブデザイン --- */
+/* スマートフォン向けのスタイル調整 */
+@media (max-width: 768px) {
+  .menu-management-page {
+    padding: 16px; /* スマートフォンでは余白を少し狭くする */
+  }
+
+  .page-header {
+    flex-direction: column; /* ヘッダーを縦並びにする */
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-list {
+    /* 画面幅が狭い場合は1カラムにする */
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,0 +1,310 @@
+.customer-detail-container {
+  padding: 20px;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 20px; /* main-headerの高さ分 */
+  z-index: 10;
+  border: 1px solid #f0f0f0;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1; /* Allow this to take up space */
+}
+
+.customer-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.customer-name {
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
+}
+
+.customer-email {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.send-notification-btn {
+  background-color: #d17a94;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+.send-notification-btn i {
+  margin-right: 8px;
+}
+.send-notification-btn:hover {
+  background-color: #c16a84;
+}
+
+.karute-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.karute-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.karute-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.karute-card h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.history-list {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.history-item:last-child {
+  border-bottom: none;
+}
+.history-item-main {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.history-date {
+  font-weight: 500;
+}
+.history-staff {
+  color: #777;
+  font-size: 0.9em;
+}
+.history-menu {
+  color: #333;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.toggle-history-btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.toggle-history-btn:hover {
+  background-color: #e9ecef;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.stats-item {
+  display: flex;
+  flex-direction: column;
+}
+.stats-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d17a94;
+}
+.stats-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For char counter positioning */
+}
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 25px; /* Space for char counter */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 80px;
+  box-sizing: border-box;
+}
+
+.saving-status {
+  margin-top: 20px;
+  text-align: right;
+  font-style: italic;
+  color: #888;
+}
+
+/* Photo Gallery Styles */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+.photo-item {
+  position: relative;
+  aspect-ratio: 1 / 1; /* 正方形を維持するモダンな方法 */
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像をコンテナに合わせてトリミング */
+  transition: transform 0.2s;
+}
+.photo-item:hover img {
+  transform: scale(1.05);
+}
+
+.delete-photo-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+.photo-item:hover .delete-photo-btn {
+  opacity: 1;
+}
+
+.upload-photo-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #ccc;
+  transition: background-color 0.2s, color 0.2s;
+}
+.upload-photo-label:hover {
+  background-color: #f8f9fa;
+  color: #aaa;
+}
+.upload-photo-label input[type="file"] {
+  display: none;
+}
+.photo-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(200, 200, 200, 0.3);
+  border-radius: 50%;
+  border-top-color: #aaa;
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Photo Modal Styles */
+.photo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+.photo-modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+
+/* Lifestyle Section Styles */
+.form-grid-lifestyle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.lifestyle-hobby-group {
+  flex: 1;
+  min-width: 250px;
+}
+.lifestyle-notes-group {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Character Counter Styles */
+.char-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  color: #888;
+}
+

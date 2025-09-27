@@ -1,0 +1,320 @@
+/* src/pages/cust/MyPage.css */
+:root {
+  --primary-color: #d17a94;
+  --primary-light: #f8e7f1;
+  --background-color: #f8f9fa;
+  --card-bg-color: rgba(255, 255, 255, 0.8);
+  --text-dark: #343a40;
+  --text-light: #6c757d;
+  --border-color: rgba(209, 122, 148, 0.2);
+}
+
+.my-page-container {
+  padding: 24px 16px;
+  padding-bottom: 80px;
+  background-color: #f7f8fa;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+.my-page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.profile-picture-container {
+  position: relative;
+  margin-right: 16px;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fce4ec;
+}
+
+.camera-icon-label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #e91e63;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid white;
+  transition: background-color 0.2s;
+}
+
+.camera-icon-label:hover {
+  background-color: #c2185b;
+}
+
+.camera-icon-label svg {
+  width: 16px;
+  height: 16px;
+}
+
+.spinner-mini {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.greeting {
+  flex-grow: 1;
+}
+
+.greeting .salon-name {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+
+.greeting h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.next-reservation-section {
+  margin-bottom: 24px;
+}
+
+.next-reservation-section h2 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.reservation-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.next-reservation-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.next-reservation-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.reservation-item svg {
+  width: 20px;
+  height: 20px;
+  color: #e91e63;
+}
+
+.reservation-menu-name {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.no-reservation-card-v2 {
+  background: var(--card-bg-color);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px dashed var(--border-color);
+}
+
+.no-reservation-card-v2 p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 1em;
+}
+
+/* --- お知らせセクション --- */
+.notifications-section {
+  margin-bottom: 24px;
+}
+
+.notifications-section .section-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.notifications-section .section-header h2 {
+  display: inline-block;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.notifications-section .section-header a {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.notifications-list-mypage {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 8px 16px;
+}
+
+.notification-item-mypage {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-item-mypage:last-child {
+  border-bottom: none;
+}
+
+.notification-item-mypage .notification-date {
+  font-size: 0.8rem;
+  color: #888;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.notification-item-mypage .notification-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #555;
+}
+
+.no-notifications-mypage {
+  text-align: center;
+  color: #888;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- Main Actions Grid --- */
+.main-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.action-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  position: relative;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.action-card svg {
+  width: 28px;
+  height: 28px;
+  color: #e91e63;
+}
+
+.action-card span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+.action-card.disabled span {
+  color: #bdbdbd;
+}
+
+.action-card.disabled {
+  background-color: #f5f5f5;
+  color: #bdbdbd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.action-card.disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.action-card.disabled svg {
+  color: #adb5bd;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #70d0ee;
+  color: rgb(255, 255, 255);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 2px solid white;
+}

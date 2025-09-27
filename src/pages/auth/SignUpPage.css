@@ -1,0 +1,100 @@
+/* src/pages/SignUpPage.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.container h2 {
+  color: #d17a94;
+  margin-bottom: 20px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.container input {
+  padding: 12px;
+  border: 1px solid #d17a94;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.container button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e094a8;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.container button:hover {
+  background-color: #d17a94;
+}
+
+.container p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.success-message {
+  padding: 20px;
+  background-color: #f0fff4; /* 薄い緑色の背景 */
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.success-message p {
+  font-size: 16px;
+  color: #388e3c; /* 緑色の文字 */
+  margin-bottom: 0;
+}
+
+.success-message-detail{
+  text-align: left;
+}
+
+.user-type-toggle {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #e094a8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.user-type-toggle button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #fff;
+  color: #e094a8;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.user-type-toggle button.active {
+  background-color: #e094a8;
+  color: #fff;
+  font-weight: bold;
+}

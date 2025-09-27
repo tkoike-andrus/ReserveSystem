@@ -1,0 +1,236 @@
+/* src/pages/admin/ScheduleManagementPage.css */
+.schedule-management-page > p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.schedule-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .schedule-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.admin-calendar {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 10px;
+}
+
+.admin-calendar .react-calendar__tile--active {
+  background: #d17a94 !important;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+.admin-calendar .has-slot {
+  background-color: #e0f7fa !important;
+  color: #007bff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.admin-calendar .react-calendar__tile--active.has-slot {
+  background: #b2ebf2 !important;
+  color: #004d40 !important;
+  border: 2px solid #007bff !important;
+}
+
+
+.slot-editor-display {
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+.slot-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.slot-editor-header h3 {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* ▼▼▼ 修正点: ボタンのデザインを修正 ▼▼▼ */
+.bulk-delete-button {
+  background-color: #ffebee; /* 薄い赤色 */
+  color: #d32f2f; /* 濃い赤色 */
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px; /* 角を丸く */
+  font-size: 0.85em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bulk-delete-button:hover {
+  background-color: #ffcdd2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* ▲▲▲ 修正ここまで ▲▲▲ */
+
+.slot-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+.slot-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.slot-item.booked {
+  background-color: #e9ecef;
+  color: #888;
+  text-decoration: line-through;
+}
+.delete-slot-btn {
+  background: none;
+  border: none;
+  color: #d9534f;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0 5px;
+}
+.no-slots-message {
+    width: 100%;
+    text-align: center;
+    color: #888;
+}
+
+.bulk-add-editor {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.bulk-add-editor h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #d17a94;
+}
+
+.bulk-add-step h4 {
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.weekday-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weekday-group {
+  display: flex;
+  gap: 10px;
+}
+
+.weekday-selector label {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: none !important;
+}
+.weekday-selector label.checked {
+  background-color: #d17a94;
+  color: #fff;
+  border-color: #d17a94;
+  font-weight: bold;
+}
+.weekday-selector input {
+  display: none;
+}
+
+.time-range-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.time-range-selector select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-13z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+  padding-right: 30px;
+}
+
+.interval-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.interval-selector label {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.interval-selector label.active {
+  background-color: #d17a94;
+  color: #fff;
+  border-color: #d17a94;
+}
+.interval-selector input {
+  display: none;
+}
+
+.bulk-add-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-note {
+  font-size: 0.8em;
+  color: #888;
+  text-align: center;
+  margin-top: 10px;
+}

@@ -1,0 +1,59 @@
+/* src/pages/auth/EmployeeInviteLandingPage.css */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 450px;
+  margin: 80px auto 0;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.landing-logo {
+  width: 240px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.landing-content {
+  width: 100%;
+}
+
+.landing-title {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.landing-message {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.landing-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d17a94;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.landing-button:hover {
+  background-color: #c56783;
+}
+
+.landing-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

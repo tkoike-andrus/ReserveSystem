@@ -1,0 +1,135 @@
+/* src/pages/admin/InviteCustomerPage.css */
+
+.invite-customer-page {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+/* 中央に配置されるカードコンテナ */
+.invite-container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto; /* --- ▼▼▼ 修正 ▼▼▼ カード自体を中央に配置 */
+  padding: 24px; /* --- ▼▼▼ 修正 ▼▼▼ 内側に余白を追加 */
+  border: 1px solid #e9ecef;
+}
+
+/* ヘッダー部分 (アイコン + タイトル) */
+.invite-container h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ヘッダー内のテキストは中央寄せ */
+  gap: 12px;
+  font-size: 1.6em;
+  color: #343a40;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* SVGアイコンのスタイル */
+.invite-container h3::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: #d17a94;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75' /%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* 説明文のスタイル */
+.invite-container p {
+  color: #6c757d;
+  font-size: 1em;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  text-align: left; /* --- ▼▼▼ 修正 ▼▼▼ 説明文は左寄せを維持 */
+}
+
+/* --- ▼▼▼ 追加 ▼▼▼ ボタンとQRコードを中央寄せにするためのラッパー */
+.invite-actions,
+.qr-code-display {
+  text-align: center;
+}
+
+/* QRコード生成ボタン */
+.generate-qr-button {
+  width: 80%;
+  padding: 14px ;
+  border: none;
+  border-radius: 12px;
+  background-color: #d17a94;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(209, 122, 148, 0.2);
+}
+
+.generate-qr-button:hover {
+  background-color: #c56783;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(209, 122, 148, 0.3);
+}
+
+.generate-qr-button:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* QRコード表示エリア */
+.qr-code-display {
+  margin-top: 32px;
+  padding: 24px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px dashed #ced4da;
+}
+
+.qr-code-display h4 {
+  margin: 0 0 16px 0;
+  color: #343a40;
+  font-size: 1.2em;
+}
+
+.qr-code-wrapper {
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.qr-instructions {
+  margin-top: 16px;
+  margin-bottom: 0;
+  font-size: 0.9em;
+  color: #6c757d;
+  text-align: center !important; /* --- ▼▼▼ 修正 ▼▼▼ QRコード下の説明は中央寄せ */
+}
+
+/* ローディングオーバーレイ */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+

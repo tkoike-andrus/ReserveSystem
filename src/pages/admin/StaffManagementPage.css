@@ -1,0 +1,342 @@
+/* src/pages/admin/StaffManagementPage.css */
+
+.staff-management-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.invite-section,
+.staff-list-section {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+h3 {
+  margin-top: 0;
+  color: #d17a94;
+}
+
+.invite-section p {
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.invite-button {
+  background-color: #d17a94;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1.0em;
+}
+
+.invite-button:hover {
+  background-color: #c56783;
+}
+
+.new-account-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  color: #2e7d32;
+}
+
+/* --- Staff List --- */
+.staff-list-header {
+  display: none; /* Modern card view doesn't need this */
+}
+
+.staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.staff-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .staff-card {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+}
+
+.mobile-label {
+  display: block;
+  font-size: 0.8em;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+@media (min-width: 768px) {
+  .mobile-label {
+    display: none;
+  }
+}
+
+.staff-name-text {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.status-badge.pending {
+  background-color: #f7f7f7d0;
+  color: #9c9b9b;
+}
+
+.status-badge.registered {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.action-buttons-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.staff-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.invite-btn {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.0em;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  font-size: 1.0em;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  animation: modal-fade-in 0.3s ease-out;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.25em;
+  color: #333;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ★ 修正点: QRモーダルのレイアウトをFlexboxで安定化 */
+.modal-content.qr-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px; /* 各要素間のスペースを統一 */
+}
+
+.qr-modal h3 { margin-bottom: 8px; }
+.qr-modal p { margin-top: 0; margin-bottom: 16px; font-size: 0.9em; color: #555; }
+
+.role-toggle-btn.active {
+  background-color: #d17a94;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: scale(1.05);
+}
+
+.qr-code-container {
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-bottom: 16px;
+  flex-shrink: 0; /* QRコードが縮まないように */
+}
+
+.account-info-display {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+  flex-shrink: 0; /* 縮まないように */
+}
+
+.account-info-display p {
+  margin: 0;
+  font-size: 1em;
+}
+
+.account-info-display span {
+  font-size: 0.8em;
+  color: #555;
+}
+
+.qr-modal-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto; /* ★ 修正点: ボタンをモーダルの最下部に配置 */
+  flex-shrink: 0; /* 縮まないように */
+}
+
+.share-btn, .close-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.share-btn {
+  background-color: #06C755;
+  color: white;
+}
+
+.close-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.role-toggle-container {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #f4f4f5;
+  padding: 4px;
+}
+
+.role-toggle-container {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #f4f4f5;
+  padding: 4px;
+}
+
+.role-toggle-btn {
+  padding: 6px 12px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s ease-in-out;
+  border-radius: 16px;
+}
+
+.role-toggle-btn.active {
+  background-color: #d17a94;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

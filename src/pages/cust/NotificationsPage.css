@@ -1,0 +1,255 @@
+/* --- (ファイル上部の既存のCSSは変更なし) --- */
+.notifications-page-container {
+  padding-bottom: 20px;
+}
+.notifications-page-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.notifications-page-header .back-link {
+  position: absolute;
+  left: 15px;
+  color: #333;
+  height: 24px;
+  width: 24px;
+}
+.notifications-page-header h1 {
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+.notifications-list {
+  padding: 15px;
+}
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.notification-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.notification-item.unread {
+  background-color: #fff8fa;
+  border-left: 5px solid #D17A94;
+}
+.notification-item.unread .notification-title {
+  color: #D17A94;
+}
+.notification-icon-container.unread {
+  background-color: #D17A94;
+  color: #fff;
+}
+.notification-item.read {
+  border-left: 5px solid #e0e0e0;
+  opacity: 0.8;
+}
+.notification-icon-container.read {
+  background-color: #f0f0f0;
+  color: #888;
+}
+.notification-icon-container {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notification-icon-container svg {
+  width: 24px;
+  height: 24px;
+}
+.chevron-icon-container {
+  flex-shrink: 0;
+  color: #ccc;
+  width: 24px;
+  height: 24px;
+}
+.notification-item-content {
+  flex-grow: 1;
+  text-align: left;
+  min-width: 0;
+}
+.notification-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.notification-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.notification-date {
+  font-size: 0.8rem;
+  color: #888;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+.notification-body {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /* Safari, Chromeなどの古いバージョン向け */
+  line-clamp: 2;         /* 標準プロパティ */
+}
+.no-notifications {
+  text-align: center;
+  margin-top: 40px;
+  color: #888;
+}
+
+/* --- ▼▼▼ ここから変更 ▼▼▼ --- */
+
+/* アニメーションの定義 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* モーダル */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 15px;
+  animation: fadeIn 0.3s ease-out; /* 表示アニメーション */
+}
+.modal-overlay.closing {
+  animation: fadeOut 0.3s ease-in forwards; /* 閉じるアニメーション */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn 0.3s ease-out; /* 表示アニメーション */
+}
+.modal-content.closing {
+  animation: scaleOut 0.3s ease-in forwards; /* 閉じるアニメーション */
+}
+
+/* --- (以降のモーダル関連CSSは変更なし) --- */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+  gap: 15px;
+}
+
+.modal-title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  color: #888;
+  flex-shrink: 0;
+}
+.modal-close-button:hover {
+    color: #333;
+}
+.modal-close-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.modal-body {
+  overflow-y: auto;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.modal-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0 0 15px;
+}
+
+.modal-text-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+  white-space: pre-wrap;
+  margin: 0;
+  text-align: left;
+  word-break: break-word;
+}

@@ -1,0 +1,9 @@
+// src/services/supabaseClient.js
+
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// storageKeyを指定しないことで、Supabaseのデフォルトキーが使用される
+export const supabase = createClient(supabaseUrl, supabaseKey);

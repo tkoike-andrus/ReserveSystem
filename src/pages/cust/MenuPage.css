@@ -1,0 +1,229 @@
+/* src/pages/MenuPage.css */
+.menu-page-container {
+  padding-top: 50px; /* ヘッダーの高さに応じてこの値を調整してください */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  background-color: #f8f9fa;
+  min-height: 100vh
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #555;
+  cursor: pointer;
+  padding: 10px;
+  line-height: 1;
+}
+.menu-page-container h1 {
+  font-size: 1.3em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* スマートフォンで見やすいように2列に固定 */
+  gap: 1rem;
+}
+
+.menu-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); /* 影を調整 */
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column; /* カード内の要素を縦に並べる */
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+}
+
+.menu-image-wrapper {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  background-color: #f8f9fa; /* 画像がない/小さい場合の背景色 */
+}
+
+.menu-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu-info {
+  padding: 0.75rem;
+  flex-grow: 1; /* 高さを揃えるためにflex-growを設定 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 内容を上下に配置 */
+}
+
+.menu-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.menu-price {
+  font-size: 0.9rem;
+  color: #d17a94;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* ページング用のスタイル */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  border: 1px solid #d17a94;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #d17a94;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #d17a94;
+  color: #fff;
+}
+
+.pagination-button:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 1em;
+  font-weight: 500;
+  color: #555;
+}
+
+.menu-filters {
+  margin-bottom: 2rem;
+}
+
+/* カテゴリータブ */
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid #e9ecef;
+  margin-bottom: 1rem;
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.category-tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.tab-button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6c757d;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tab-button.active {
+  color: #d17a94;
+  border-bottom-color: #d17a94;
+}
+
+/* 種類タグ */
+.division-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tag-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #495057;
+  background-color: #f1f3f5;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-button.selected {
+  color: #fff;
+  background-color: #d17a94;
+  border-color: #d17a94;
+  font-weight: 600;
+}
+
+/* メニューがない時のメッセージ */
+.no-menus-message {
+  width: 100%;
+  grid-column: 1 / -1; /* グリッドの全幅を使用 */
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+}
+
+/* --- ▼▼▼ ページネーションのスタイル ▼▼▼ --- */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pagination-button:disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.pagination-button:not(:disabled):hover {
+  background-color: #f8f9fa;
+}
+
+.page-info {
+  margin: 0 1rem;
+  font-weight: 600;
+  color: #495057;
+}

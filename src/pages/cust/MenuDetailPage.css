@@ -1,0 +1,202 @@
+/* 修正：すべてのセレクタの先頭に.menu-detail-containerを追加 */
+.menu-detail-container {
+  padding-bottom: 100px;
+}
+
+.menu-detail-container .detail-header {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 10;
+}
+
+.menu-detail-container .back-button-detail {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  color: #333;
+}
+
+.menu-detail-container .menu-image-container {
+  width: 100%;
+  height: 40vh;
+}
+
+.menu-detail-container .menu-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-detail-container .menu-content-container {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  margin-top: -20px;
+  position: relative;
+}
+
+.menu-detail-container .tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.menu-detail-container .tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.menu-detail-container .category-tag {
+  background-color: #f8e7f1;
+  color: #d17a94;
+}
+
+.menu-detail-container .division-tag {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.menu-detail-container .menu-content-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #6d6a6d;
+}
+
+.menu-detail-container .description {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.menu-detail-container .details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.menu-detail-container .detail-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.menu-detail-container .detail-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.menu-detail-container .price {
+  font-size: 1.3rem;
+  color: #d17a94;
+}
+
+.menu-detail-container .reservation-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-detail-container .reservation-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  background-color: #d17a94;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-detail-container .reservation-button:hover {
+  background-color: #c16a84;
+}
+
+.menu-detail-container .off-toggle-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.menu-detail-container .off-info .off-label {
+  font-weight: 600;
+  color: #343a40;
+  display: block;
+}
+
+.menu-detail-container .off-info .off-details {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.menu-detail-container .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.menu-detail-container .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.menu-detail-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 28px;
+}
+
+.menu-detail-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.menu-detail-container input:checked + .slider {
+  background-color: #d17a94;
+}
+
+.menu-detail-container input:checked + .slider:before {
+  transform: translateX(22px);
+}

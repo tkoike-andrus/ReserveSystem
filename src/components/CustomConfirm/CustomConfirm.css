@@ -1,0 +1,78 @@
+/* src/components/CustomConfirm/CustomConfirm.css */
+
+.confirm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000; /* ローディング画面よりも手前に表示 */
+}
+
+.confirm-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.confirm-message {
+  font-size: 1.1em;
+  color: #333;
+  margin: 0 0 25px 0;
+  line-height: 1.6;
+}
+
+.confirm-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.confirm-modal-actions button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.confirm-modal-actions button:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.confirm-modal-actions button:active {
+  transform: scale(0.97);
+}
+
+.confirm-cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.confirm-ok-btn {
+  background-color: #dc3545; /* 削除ボタンと同じ赤色 */
+  color: white;
+}

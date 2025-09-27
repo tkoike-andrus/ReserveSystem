@@ -1,0 +1,90 @@
+.customer-list-container {
+  padding: 20px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.page-header h1 {
+  margin: 0;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 250px;
+  font-size: 1rem;
+}
+
+.customer-table-container {
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customer-table th,
+.customer-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.customer-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.customer-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.customer-row:hover {
+  background-color: #f1f3f5;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+/* --- Added styles for the arrow icon --- */
+.customer-name-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customer-name-cell::after {
+  content: '>';
+  font-family: monospace;
+  font-size: 1.5em;
+  color: #ccc;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.customer-row:hover .customer-name-cell::after {
+  color: #888;
+}
+

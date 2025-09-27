@@ -1,0 +1,246 @@
+/* src/components/ReservationForm/ReservationForm.css */
+
+/* コンポーネント全体のコンテナ */
+.ReservationForm {
+  padding: 20px;
+  background-color: #fff8f8;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ヘッダー */
+.ReservationForm h3, .ReservationForm h4 {
+  color: #d17a94;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+/* カレンダーのスタイル */
+.react-calendar {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* 年月ラベルのスタイル */
+.react-calendar__navigation__label {
+  flex-grow: 1;
+  pointer-events: none;
+  color: #d17a94;
+}
+
+.custom-navigation-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.nav-year {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.nav-month {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+/* 左右の矢印ボタンのスタイル */
+.react-calendar__navigation button {
+  color: #d17a94;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0 5px;
+}
+
+.react-calendar__navigation button.react-calendar__navigation__arrow {
+  font-size: 1.5em;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+.react-calendar__tile {
+  border-radius: 5px;
+  padding: 5px 3px;
+  font-size: 0.8em;
+  color: #555;
+  transition: background-color 0.2s;
+  height: 35px;
+  line-height: 25px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-calendar__tile:focus {
+    background-color: inherit;
+    outline: none;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  color: #d17a94;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding-bottom: 10px;
+}
+
+.react-calendar__tile--now {
+  font-weight: bold;
+}
+.react-calendar__tile--now:not(.available) {
+    background: #f8e7f1;
+}
+
+
+.react-calendar__tile--active {
+  background: #d17a94 !important;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+.react-calendar__tile.available.react-calendar__tile--active {
+    background: #d1e7d2 !important;
+    color: #2e7d32 !important;
+    font-weight: bold;
+    border: 2px solid #388e3c !important;
+}
+
+
+.react-calendar__tile:disabled {
+  background-color: #f5f5f5 !important;
+  color: #b0b0b0 !important;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.react-calendar__tile.available {
+  background-color: #e8f5e9 !important;
+  color: #388e3c;
+  font-weight: bold;
+}
+
+.react-calendar__tile.available:hover {
+  background-color: #d1e7d2 !important;
+}
+
+/* 時間選択と備考欄のコンテナ */
+.time-and-remarks-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+/* 時間選択ボタンのコンテナ */
+.time-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ▼▼▼ 修正点 ▼▼▼ */
+.time-buttons > div {
+  display: contents;
+}
+/* ▲▲▲ 修正ここまで ▲▲▲ */
+
+/* 時間選択ボタン */
+.time-buttons button {
+  padding: 10px 15px;
+  border: 1px solid #d17a94;
+  border-radius: 20px;
+  background-color: #f8e7f1;
+  color: #d17a94;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 14px;
+}
+
+.time-buttons button:hover {
+  background-color: #d17a94;
+  color: #fff;
+}
+
+.time-buttons button.selected {
+  background-color: #d17a94;
+  color: #fff;
+  border-color: #d17a94;
+  font-weight: bold;
+}
+
+.time-buttons button:focus,
+.time-buttons button:focus-visible {
+    outline: none;
+}
+
+/* 備考欄のスタイル */
+.ReservationForm textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  border: 1px solid #d17a94;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* 文字数カウンターのスタイルを追加*/
+.char-counter {
+  text-align: right;
+  font-size: 0.85em;
+  color: #888;
+  margin-top: 5px;
+  padding-right: 5px;
+}
+/* 予約ボタンのスタイル */
+.ReservationForm .reserve-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #e66a97, #d17a94);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(220, 100, 150, 0.3);
+  letter-spacing: 1px;
+}
+
+.ReservationForm .reserve-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 100, 150, 0.4);
+}
+
+.ReservationForm .reserve-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}

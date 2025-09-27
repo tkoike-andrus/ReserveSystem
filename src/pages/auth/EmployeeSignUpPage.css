@@ -1,0 +1,154 @@
+/* src/pages/auth/EmployeeSignUpPage.css */
+/* AdminLoginPage.cssのスタイルを基本として再利用 */
+/*@import './AdminLoginPage.css';*/
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-logo {
+  width: 240px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.auth-container h2 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.auth-subtitle {
+  color: #d17a94;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.auth-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e094a8;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-form button:hover {
+  background-color: #d17a94;
+}
+
+.auth-error {
+  color: #d9534f;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.auth-link {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 20px;
+  text-align: center; /* 中央揃え */
+}
+
+.auth-link a {
+  color: #d17a94;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.welcome-message {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.auth-subtitle {
+  margin-bottom: 25px;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%; /* 親要素の幅に合わせる */
+  box-sizing: border-box; /* paddingを含めて幅を計算 */
+}
+
+.readonly-input {
+  background-color: #f0f0f0;
+  color: #666;
+  border: 1px solid #ddd;
+  cursor: not-allowed;
+}
+.account-id-display-box {
+  background-color: #eef2ff; /* 目立つように薄い青色を追加 */
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.account-id-display-box label {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #4338ca;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.account-id-value {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 4px 0 8px 0;
+  word-break: break-all;
+}
+
+.account-id-note {
+  font-size: 0.8em;
+  color: #4f46e5;
+  line-height: 1.5;
+  margin: 0;
+}

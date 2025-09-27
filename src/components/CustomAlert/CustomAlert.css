@@ -1,0 +1,69 @@
+/* src/components/CustomAlert/CustomAlert.css */
+
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.custom-alert-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.alert-icon-container {
+  margin-bottom: 20px;
+}
+
+.alert-icon {
+  width: 50px;
+  height: 50px;
+  fill: #4caf50; /* 成功を示す緑色 */
+}
+
+.alert-message {
+  color: #333;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.alert-message p {
+  margin: 0;
+}
+
+.alert-close-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #e66a97, #d17a94);
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.alert-close-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(220, 100, 150, 0.3);
+}

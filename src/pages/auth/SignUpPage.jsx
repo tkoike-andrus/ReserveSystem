@@ -21,13 +21,10 @@ const SignUpPage = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const id = queryParams.get('invitation_id');
-    if (id) {
-      console.log(`[デバッグ] 招待IDが見つかりました: ${id}`);
-      setInvitationId(id);
-      setUserType('customer'); // 招待フローの場合はcustomerに固定
-    } else {
-      console.log('[デバッグ] 通常のサインアップフローです。');
-    }
+
+    setInvitationId(id);
+    setUserType('customer'); // 招待フローの場合はcustomerに固定
+
   }, [location.search]);
 
   const handleSignUp = async (e) => {

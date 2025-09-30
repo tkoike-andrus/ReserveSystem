@@ -1,10 +1,12 @@
-// supabase/functions/initiate-salon-invitation/index.ts
+// supabase/functions/initiate-salon-invitation/index.ts (CORS修正版)
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.0.0';
+// 正常に動作している他のFunctionと同じ、より寛容なCORSヘッダーを設定
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'content-type'
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type'
 };
+// ★★★ ここまでが修正箇所 ★★★
 serve(async (req)=>{
   if (req.method === 'OPTIONS') {
     return new Response('ok', {

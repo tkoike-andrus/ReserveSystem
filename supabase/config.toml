@@ -1,10 +1,11 @@
 # supabase/config.toml
+# This is the standard configuration for a Supabase project.
 
-[functions.cleanup-pending-invitations]
-# "cron" を "schedule" に修正します
-schedule = "0 18 * * *"
+[api]
+port = 54321
 
-[db.config]
-# .env ファイルの POSTGRES_DB_JWT_SECRET の値を
-# 'custom.jwt_secret' という名前の変数としてデータベース内で使えるようにする
-"custom.jwt_secret" = "env.POSTGRES_DB_JWT_SECRET"
+[db]
+major_version = 17
+
+[studio]
+port = 54323

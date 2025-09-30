@@ -19,7 +19,7 @@ serve(async (req)=>{
       throw new Error("招待ID、プロフィールデータ、IDトークンは必須です。");
     }
     // --- IDトークンをLINEの公式APIで検証 ---
-    const liffChannelId = Deno.env.get('VITE_LIFF_CHANNEL_ID');
+    const liffChannelId = Deno.env.get('LINE_CLIENT_ID');
     if (!liffChannelId) {
       throw new Error("VITE_LIFF_CHANNEL_IDがSupabaseのSecretsに設定されていません。");
     }

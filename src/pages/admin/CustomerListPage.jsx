@@ -52,7 +52,6 @@ const CustomerListPage = () => {
   return (
     <div className="customer-list-container">
       <div className="page-header">
-        <h1>顧客管理</h1>
         <div className="search-container">
           <input
             type="text"

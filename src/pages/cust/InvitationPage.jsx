@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import liff from '@line/liff';
+//import liff from '@line/liff';
 import { supabase } from '../../services/supabaseClient';
 
 const InvitationPage = () => {

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { supabase } from '../../services/supabaseClient';
-import liff from '@line/liff';
+//import liff from '@line/liff';
 import { QRCodeSVG } from 'qrcode.react';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import CustomAlert from '../../components/CustomAlert';
